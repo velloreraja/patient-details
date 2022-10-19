@@ -1,0 +1,363 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: rgb(52, 98, 250);
+}
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+.heading #list {
+  font-size: 23px;
+  font-weight: bold;
+}
+.heading .patient-details {
+  font-size: 19px;
+  font-weight: 500;
+}
+.button {
+  padding: 10px 25px;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+}
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*records css */
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  height: auto;
+  padding: 20px;
+  margin-top: 20px;
+}
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+th,
+td {
+  padding-left: 8px;
+}
+td {
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+}
+thead tr {
+  height: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-size: 16px;
+}
+tbody tr {
+  height: 48px;
+  text-align: center;
+  border-bottom: 1px solid #e3e3e3;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.9);
+}
+tbody tr:hover {
+  background-color: rgb(231, 230, 230);
+  /* color: rgb(3, 3, 3); */
+}
+.addrecord {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+#button {
+  padding: 13px 20px;
+  background-color: rgb(59, 71, 240);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+}
+#button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+::selection {
+  color: rgb(255, 255, 255);
+  background: rgb(79, 120, 40);
+}
+
+/* add form */
+.backdrop {
+  position: fixed;
+  display: none;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+  z-index: 10;
+}
+.middel {
+  background-color: white;
+  flex-direction: column;
+  gap: 10;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
+  border: 2px solid black;
+}
+.close {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 25px;
+}
+.close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.input-field {
+  position: relative;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+.form {
+  width: 450px;
+  height: auto;
+  padding: 3rem;
+  /* border: 2px solid rgb(29, 29, 29); */
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  margin: auto;
+}
+.form-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  border: 1px solid rgb(168, 168, 168);
+  padding: 0.5rem;
+  outline: none;
+  background: none;
+  z-index: 1;
+  border-radius: 5px;
+}
+.form-label {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.8rem;
+  padding: 0.25rem;
+  background-color: white;
+  color: rgb(150, 148, 148);
+  transition: 0.3s;
+}
+.form-input:focus + .form-label {
+  top: -0.5rem;
+  left: 0.8rem;
+  color: rgb(127, 125, 231);
+  font-size: 14px;
+  z-index: 10;
+  font-weight: 400;
+}
+.form-input:not(:placeholder-shown).form-input:not(:focus) + .form-label {
+  top: -0.5rem;
+  left: 0.8rem;
+  font-size: 14px;
+  font-weight: 400;
+  z-index: 10;
+}
+.form-input:hover {
+  border: 1.5px solid rgb(94, 94, 95);
+}
+.form-input:focus {
+  border: 1.5px solid blue;
+}
+
+/* Add userdata */
+
+.eventbuttons {
+  width: 100%;
+  /* background-color:aliceblue; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+  text-align: center;
+}
+.btn {
+  padding: 10px 0;
+  width: 90px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: rgb(43, 160, 33);
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+.eventbuttons .cancel {
+  background-color: white;
+  color: rgb(79, 82, 243);
+  outline: 1px solid rgb(133, 123, 179);
+}
+.eventbuttons .cancel:hover {
+  outline: 1px solid blue;
+  background-color: rgb(245, 245, 245);
+  transform: translateY(-1px);
+}
+.eventbuttons .save:hover {
+  background-color: rgb(46, 209, 46);
+  transform: translateY(-1px);
+}
+
+/* edit form  css*/
+.ebackdrop {
+  position: fixed;
+  display: none;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+  z-index: 10;
+}
+.emiddel {
+  background-color: white;
+  flex-direction: column;
+  gap: 10;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
+  border: 2px solid black;
+}
+
+.eventbuttons {
+  width: 100%;
+  /* background-color:aliceblue; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+  text-align: center;
+}
+.eventbuttons .cancle {
+  background-color: white;
+  color: rgb(95, 93, 93);
+  outline: 1px solid gray;
+  font-weight: 500;
+}
+.eventbuttons .cancle:hover {
+  background-color: rgb(248, 183, 62);
+  color: white;
+}
+.eventbuttons .cancle:focus {
+  background-color: rgb(248, 183, 62);
+  color: white;
+}
+.eventbuttons .update {
+  padding: 10px 0;
+  width: 90px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: rgb(43, 160, 33);
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+.eventbuttons .update:hover {
+  background-color: rgb(84, 163, 77);
+}
+.eventbuttons .update:focus {
+  background-color: rgb(84, 163, 77);
+}
+
+.eventbuttons .delete {
+  background-color: white;
+  color: rgb(246, 11, 11);
+  outline: 1px solid rgb(228, 57, 57);
+  font-weight: 500;
+}
+.eventbuttons .delete:hover {
+  outline: 1px solid rgb(197, 75, 75);
+  background-color: rgb(228, 35, 35);
+  color: white;
+}
+.eventbuttons .delete:focus {
+  outline: 1px solid rgb(197, 75, 75);
+  background-color: rgb(228, 35, 35);
+  color: white;
+}
+
+@media screen and (max-width: 760px) {
+  .section2 {
+    width: 100%;
+  }
+  thead tr {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  tbody tr {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .form {
+    width: 380px;
+  }
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../patientdetails/images/one.jpg"
+    />
+    <!-- icon cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Two</title>
+    <link rel="stylesheet" href="two.css" />
+  </head>
+  <body>
+    <section class="section1">
+      <nav class="navbar">
+        <div class="heading">
+          <i class="ri-menu-line" id="list"></i>
+          <h3 class="patient-details">Patients List</h3>
+        </div>
+        <button class="button" onclick="logout()">LOGOUT</button>
+      </nav>
+    </section>
+
+    <section class="section2">
+      <table id="tableId">
+        <thead id="stoories">
+          <tr>
+            <th>patient</th>
+            <th>Name</th>
+            <th>Sur Name</th>
+            <th>Age</th>
+            <th>Disease</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbody">
+          <tr>
+            <td>4980</td>
+            <td>Eric Jason</td>
+            <td>Parker</td>
+            <td>28</td>
+            <td>Acute Flaccid Myelitis</td>
+          </tr>
+          <tr>
+            <td>5244</td>
+            <td>Tony</td>
+            <td>Rai</td>
+            <td>33</td>
+            <td>Alcohol-related liver disease</td>
+          </tr>
+          <tr>
+            <td>4080</td>
+            <td>John</td>
+            <td>Peterson</td>
+            <td>45</td>
+            <td>Dengue. Diphtheria.</td>
+          </tr>
+          <tr>
+            <td>1122</td>
+            <td>John</td>
+            <td>Keniry</td>
+            <td>52</td>
+            <td>Febris recurrens.</td>
+          </tr>
+          <tr>
+            <td>3451</td>
+            <td>Mark</td>
+            <td>Antony</td>
+            <td>24</td>
+            <td>Haemophilus infection</td>
+          </tr>
+          <div id="demo"></div>
+        </tbody>
+      </table>
+    </section>
+    <div class="addrecord">
+      <button id="button" role="button" onclick="addNewrecord()">
+        add record
+      </button>
+      <!-- <button id="button" role="button" onclick="deleterecord()">Delete Record</button> -->
+    </div>
+
+    <!-- record input form -->
+
+    <div class="backdrop">
+      <div class="middel">
+        <div class="form" id="form">
+          <i class="ri-close-line close" onclick="crossClose()"></i>
+
+          <div class="input-field">
+            <input
+              type="text"
+              class="form-input"
+              id="patientid"
+              value=""
+              placeholder=" "
+            />
+            <label for="" class="form-label">Patient ID*</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="text"
+              class="form-input"
+              id="name"
+              value=""
+              placeholder=" "
+            />
+            <label for="" class="form-label">Name*</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="text"
+              class="form-input"
+              id="surname"
+              value=""
+              placeholder=" "
+            />
+            <label for="" class="form-label">Sur Name*</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="number"
+              class="form-input"
+              id="age"
+              value=""
+              placeholder=" "
+              min="1"
+              max="120"
+            />
+            <label for="" class="form-label">Age*</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="text"
+              class="form-input"
+              id="disease"
+              value=""
+              placeholder=" "
+            />
+            <label for="" class="form-label">Disease*</label>
+          </div>
+          <div class="eventbuttons">
+            <button type="button" class="btn cancel" onclick="closeForm()">
+              cancle
+            </button>
+            <button type="submit" class="btn save" onclick="saveForm()">
+              save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- data editing form -->
+    <div class="ebackdrop">
+      <div class="emiddel">
+        <div class="form" id="form">
+          <i class="ri-close-line close" onclick="updateCrossClose()"></i>
+
+          <div class="input-field">
+            <input
+              type="text"
+              class="form-input"
+              id="epatientid"
+              value=""
+              placeholder=" "
+            />
+            <label for="" class="form-label">Patient ID*</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="text"
+              class="form-input"
+              id="ename"
+              value=""
+              placeholder=" "
+            />
+            <label for="" class="form-label">Name*</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="text"
+              class="form-input"
+              id="esurname"
+              value=""
+              placeholder=" "
+            />
+            <label for="" class="form-label">Sur Name*</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="number"
+              class="form-input"
+              id="eage"
+              value=""
+              placeholder=" "
+              min="1"
+              max="120"
+            />
+            <label for="" class="form-label">Age*</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="text"
+              class="form-input"
+              id="edisease"
+              value=""
+              placeholder=" "
+            />
+            <label for="" class="form-label">Disease*</label>
+          </div>
+          <div class="eventbuttons">
+            <button
+              type="button"
+              class="btn cancle"
+              onclick="closeUpdateForm()"
+            >
+              cancle
+            </button>
+            <button type="button" class="btn update" onclick="updateRecord()">
+              update
+            </button>
+            <button type="submit" class="btn delete" onclick="deleteRecord()">
+              delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="two.js"></script>
+  </body>
+</html>
